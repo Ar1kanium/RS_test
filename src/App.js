@@ -7,10 +7,12 @@ import SecondPage from "./components/SecondPage";
 function App() {
     const [currentPage, setCurrentPage] = React.useState(true)
   return (
-    <SwipeableViews onChangeIndex={() => setCurrentPage(!currentPage)} animateHeight>
-        <FirstPage currentPage={currentPage}/>
-        <SecondPage currentPage={currentPage}/>
-    </SwipeableViews>
+      <div className='wrapper'>
+          <SwipeableViews onChangeIndex={() => setCurrentPage(!currentPage)} animateHeight>
+              <FirstPage currentPage={currentPage}/>
+              <SecondPage currentPage={currentPage}/>
+          </SwipeableViews>
+      </div>
   );
 }
 
