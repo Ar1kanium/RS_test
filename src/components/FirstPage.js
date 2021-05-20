@@ -14,6 +14,17 @@ class FirstPage extends PureComponent {
         touched: false,
     }
 
+    resize() {
+        this.context.swipeableViews.slideUpdateHeight();
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', () => this.resize())
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', () => this.resize())
+    }
 
 
     handleChange = (e) => {
@@ -33,7 +44,7 @@ class FirstPage extends PureComponent {
                 messages: [...state.messages, [state.textArea, Date.now()]],
                 textArea: ''
             }))
-            this.context.swipeableViews.slideUpdateHeight();
+            this.resize()
         }
     }
 
