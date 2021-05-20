@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+body {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.first-page {
+    width: 100vw;
+    min-height: 100vh;
+    background: white;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to left, #7f7fd5, #86a8e7, #91eae4)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.second-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form {
+    margin-top: 20px;
+    width: 95vw;
+    display: flex;
+    justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.text-area {
+    width: 75vw;
+    height: 15vh;
+    resize: none;
+    font-size: 5.5vw;
+    border-radius: 0.2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.submit {
+    width: 15vw;
+    height: 9vh;
+    border-radius: 0.3em;
+    font-size: 4vw
+}
+
+.message {
+    animation: scale-down-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    width: 95vw;
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-columns: 1fr 15vw;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        'messageText messageText'
+        '. timeStamp';
+}
+
+.text {
+    word-wrap: break-word;
+    grid-area: messageText;
+    font-size: 5.5vw;
+    animation: wobble-hor-bottom 1s both;
+}
+
+.message-time {
+    grid-area: timeStamp;
+    font-size: 3vw;
+    animation: flip-diagonal-time 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+
+.current-time {
+font-size: 10vw;
+}
+
+@keyframes scale-down-center {
+    0% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes flip-diagonal-time {
+    0% {
+        -webkit-transform: rotate3d(1, 1, 0, 180deg);
+        transform: rotate3d(1, 1, 0, 180deg);
+    }
+    100% {
+        -webkit-transform: rotate3d(1, 1, 0, 0deg);
+        transform: rotate3d(1, 1, 0, 0deg);
+    }
+}
+
+@keyframes wobble-hor-bottom {
+    0%,
+    100% {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+    15% {
+        -webkit-transform: translateX(-30px) rotate(-6deg);
+        transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+        -webkit-transform: translateX(15px) rotate(6deg);
+        transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+        -webkit-transform: translateX(-15px) rotate(-3.6deg);
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+        -webkit-transform: translateX(9px) rotate(2.4deg);
+        transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+        -webkit-transform: translateX(-6px) rotate(-1.2deg);
+        transform: translateX(-6px) rotate(-1.2deg);
+    }
 }

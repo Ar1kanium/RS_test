@@ -1,24 +1,16 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import SwipeableViews from "react-swipeable-views";
+import FirstPage from "./components/FirstPage";
+import SecondPage from "./components/SecondPage";
 
 function App() {
+    const [currentPage, setCurrentPage] = React.useState(true)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SwipeableViews onChangeIndex={() => setCurrentPage(!currentPage)} animateHeight>
+        <FirstPage currentPage={currentPage}/>
+        <SecondPage currentPage={currentPage}/>
+    </SwipeableViews>
   );
 }
 
