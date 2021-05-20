@@ -15,11 +15,6 @@ class FirstPage extends PureComponent {
     }
 
 
-    componentDidUpdate() {
-        this.context.swipeableViews.slideUpdateHeight();
-    }
-
-
 
     handleChange = (e) => {
         if (this.props.currentPage) {
@@ -38,6 +33,7 @@ class FirstPage extends PureComponent {
                 messages: [...state.messages, [state.textArea, Date.now()]],
                 textArea: ''
             }))
+            this.context.swipeableViews.slideUpdateHeight();
         }
     }
 
